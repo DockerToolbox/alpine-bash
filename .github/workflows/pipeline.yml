@@ -28,6 +28,13 @@ jobs:
         run: echo ${{secrets.GHCR_PASSWORD}} | docker login ghcr.io --username ${{secrets.GHCR_USERNAME}} --password-stdin
       - name: Publish Container
         run: Dockerfiles/${{ matrix.version }}/manage.sh --publish --ghcr
+  hadolint:
+    name: Hadolint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Hadolint
+        run: bash <(curl -s https://raw.githubusercontent.com/CICDToolbox/hadolint/master/pipeline.sh)
   awesomebot:
     name: Awesomebot
     runs-on: ubuntu-latest
@@ -66,6 +73,7 @@ jobs:
     name: Slack Post Workflow Notification
     needs:
       - alpine
+      - hadolint
       - awesomebot
       - shellcheck
       - yaml-lint
