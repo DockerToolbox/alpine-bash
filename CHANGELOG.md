@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/DockerToolbox/alpine-bash/commits/master)
 
-- Second [`[head]`](https://github.com/DockerToolbox/alpine-bash/commit/)
+- update [`[head]`](https://github.com/DockerToolbox/alpine-bash/commit/)
+
+- Second [`[32aa34e]`](https://github.com/DockerToolbox/alpine-bash/commit/32aa34e9e30caf148c8314a61ee827c4d380cc87)
 
 - Second [`[5db98d7]`](https://github.com/DockerToolbox/alpine-bash/commit/5db98d750696c444c978829348596c6e40b4c19f)
 

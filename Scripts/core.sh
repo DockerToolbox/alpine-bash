@@ -196,14 +196,15 @@ function get_image_id()
 
 function tag_image()
 {
-    tag=$1
+    image_id=$1
+    tag=$2
 
     tag="${tag##*( )}" # Remove leading spaces
     tag="${tag%%*( )}" # Remove trailing spaces
 
     info "\tAdding tag ${PUBLISHED_CONTAINER_NAME_FULL}:${tag}"
 
-    docker tag "${IMAGE_ID}" "${PUBLISHED_CONTAINER_NAME_FULL}":"${tag}"
+    docker tag "${image_id}" "${PUBLISHED_CONTAINER_NAME_FULL}":"${tag}"
 }
 
 # -------------------------------------------------------------------------------- #
@@ -243,7 +244,7 @@ function publish_container()
 
     for tag in "${tags[@]}"
     do
-        tag_image "${tag}"
+        tag_image "${image_id}" "${tag}"
     done
 
     push_image
